@@ -20,3 +20,30 @@ rows.forEach((row) => {
 
 // Print the results
 console.log(dataArray);
+
+let csvData2 = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
+
+let dataArray2 = [];
+console.log(`......................`);
+console.log(`......................`);
+console.log(`|||new data array|||`);
+console.log(`......................`);
+console.log(`......................`);
+// const dataArray = [];
+// const comma = ",";
+// const newLine = "\n";
+
+//Find rows and columns
+const rows2 = csvData2.split(newLine).slice(1);
+rows2.forEach((row) => {
+  const columns2 = row.split(comma);
+  dataArray2.push({
+    id: columns2[0],
+    name: columns2[1],
+    occupation: columns2[2],
+    age: columns2[3],
+  });
+});
+
+// Print the results
+console.log(dataArray2);
