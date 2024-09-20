@@ -14,9 +14,11 @@ for (let i = 0; i < csvData.length; i++) {
   //Find amount of columns from first row and push row to dataArray
   if (csvData.charAt(i) === newLine) {
     console.log("Reached end of header");
-    let start = newLine + 1;
-    let end = csvData.indexOf(newLine, start);
-    if (end === -1) end = csvData.length;
+    let start = i + 1;
+    let end = csvData.indexOf(i, newLine);
+    // if (end === -1) end = csvData.length;
+    //Move to the next row
+    // start = end + newLine.length;
 
     let row = csvData.substring(start, end);
 
@@ -30,8 +32,6 @@ for (let i = 0; i < csvData.length; i++) {
     dataArray[3] = row.substring(column3 + 1).trim();
 
     dataArray.push(row);
-    console.log(dataArray);
-    break;
   }
 }
 
