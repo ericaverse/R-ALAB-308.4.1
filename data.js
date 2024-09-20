@@ -103,7 +103,8 @@ console.log("------------------------");
 console.log("------------------------");
 console.log("---------PART 3---------");
 //Part 3. Transforming Data
-
+/* see pt3.js*/
+console.log(`see pt3.js`);
 console.log("------------------------");
 console.log("------------------------");
 console.log("---------PART 4---------");
