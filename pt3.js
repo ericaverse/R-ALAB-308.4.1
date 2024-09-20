@@ -12,23 +12,30 @@ let space = " ";
 
 for (let i = 0; i < csvData.length; i++) {
   //Find amount of columns from first row and push row to dataArray
-  if (csvData.charAt(i) === comma) {
-    allColumns += 1;
-  } else if (csvData.charAt(i) === newLine) {
-    console.log("Reached end of row");
-    //replace commas with a space
-    let rowX = csvData.replaceAll(comma, space).split(newLine);
-    dataArray.push(rowX);
+  if (csvData.charAt(i) === newLine) {
+    console.log("Reached end of header");
+    let start = newLine + 1;
+    let end = csvData.indexOf(newLine, start);
+    if (end === -1) end = csvData.length;
+
+    let row = csvData.substring(start, end);
+
+    let column1 = row.indexOf(comma);
+    let column2 = row.indexOf(comma, column1 + 1);
+    let column3 = row.indexOf(comma, column2 + 1);
+
+    dataArray[0] = row.substring(0, column1).trim();
+    dataArray[1] = row.substring(column1 + 1, column2).trim();
+    dataArray[2] = row.substring(column2 + 1, column3).trim();
+    dataArray[3] = row.substring(column3 + 1).trim();
+
+    dataArray.push(row);
     console.log(dataArray);
     break;
   }
-  //Update columns after loop is complete
-  n = allColumns + 1;
-  // dataArray.length = n;
 }
-// let rowData = rows.map(row => row.split(comma));
+
 //Print Results
-console.log(`Number of columns: ${n}`);
 
 let dataArray2 = [
   {
