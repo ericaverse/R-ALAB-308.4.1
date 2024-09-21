@@ -50,3 +50,6 @@ for (let i = 0; i < dataArray.length; i++) {
 
 let result = (sumOfAges / n).toFixed(2);
 console.log(`The average age of the professionals is ${result}`);
+
+//for Part 5
+module.exports = { dataArray };
